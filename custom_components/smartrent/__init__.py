@@ -71,7 +71,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
                 entry, session, username, password, tfa_token
             )
             _LOGGER.debug("Authenticated using stored refresh token")
-        except (InvalidAuthError, ClientConnectorError, EOFError, Exception) as exc:
+        except Exception as exc:
             _LOGGER.warning(
                 "Refresh token login failed (%s), falling back to full login",
                 type(exc).__name__,
